@@ -1,14 +1,22 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
 
 User-agent: *
 Allow: /
+
+# Bloquear diretórios administrativos e arquivos irrelevantes
+Disallow: /admin/
+Disallow: /login/
+Disallow: /.env
+Disallow: /src/
+Disallow: /node_modules/
+Disallow: /dist/
+
+# Permitir bots de busca em recursos importantes
+Allow: /lovable-uploads/
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.svg
+
+# Sitemap
+Sitemap: https://lpconfeccoes.com.br/sitemap.xml
