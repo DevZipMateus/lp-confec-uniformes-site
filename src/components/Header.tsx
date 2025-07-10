@@ -28,6 +28,14 @@ const Header = () => {
     setIsMobileMenuOpen(false);
   };
 
+  const handleWhatsAppClick = () => {
+    const phoneNumber = '5541995668454';
+    const message = 'Olá! Gostaria de solicitar um orçamento para uniformes corporativos da LP Confecções.';
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    setIsMobileMenuOpen(false);
+  };
+
   const menuItems = [
     { label: 'Início', href: 'inicio' },
     { label: 'Sobre', href: 'sobre' },
@@ -67,7 +75,7 @@ const Header = () => {
               </button>
             ))}
             <button
-              onClick={() => scrollToSection('contato')}
+              onClick={handleWhatsAppClick}
               className="lp-button-primary text-sm"
             >
               Solicitar Orçamento
@@ -99,7 +107,7 @@ const Header = () => {
               ))}
               <div className="px-4 pt-2">
                 <button
-                  onClick={() => scrollToSection('contato')}
+                  onClick={handleWhatsAppClick}
                   className="lp-button-primary w-full text-center"
                 >
                   Solicitar Orçamento

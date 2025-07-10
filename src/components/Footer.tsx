@@ -15,6 +15,13 @@ const Footer = () => {
     }
   };
 
+  const handleWhatsAppClick = () => {
+    const phoneNumber = '5541995668454';
+    const message = 'Olá! Gostaria de solicitar um orçamento para uniformes corporativos da LP Confecções.';
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+  };
+
   const currentYear = new Date().getFullYear();
 
   return (
@@ -43,21 +50,21 @@ const Footer = () => {
             </p>
 
             <div className="flex flex-wrap gap-4">
-              <a
-                href="tel:+5541995668454"
+              <button
+                onClick={handleWhatsAppClick}
                 className="bg-lp-royal/20 hover:bg-lp-royal/30 px-4 py-2 rounded-lg transition-colors flex items-center space-x-2 text-sm"
               >
                 <Phone className="h-4 w-4" />
                 <span>(41) 99566-8454</span>
-              </a>
+              </button>
               
-              <a
-                href="mailto:lpcomercialconfec@gmail.com"
+              <button
+                onClick={handleWhatsAppClick}
                 className="bg-lp-royal/20 hover:bg-lp-royal/30 px-4 py-2 rounded-lg transition-colors flex items-center space-x-2 text-sm"
               >
                 <Mail className="h-4 w-4" />
                 <span>Email</span>
-              </a>
+              </button>
             </div>
           </div>
 
@@ -91,18 +98,24 @@ const Footer = () => {
                 </div>
               </div>
               
-              <div className="flex items-center space-x-3">
+              <button
+                onClick={handleWhatsAppClick}
+                className="flex items-center space-x-3 text-left hover:text-green-400 transition-colors"
+              >
                 <Phone className="h-5 w-5 text-lp-blue flex-shrink-0" />
                 <div className="text-gray-300 text-sm">
                   <p>(41) 99566-8454</p>
                   <p>(41) 3585-2549</p>
                 </div>
-              </div>
+              </button>
               
-              <div className="flex items-center space-x-3">
+              <button
+                onClick={handleWhatsAppClick}
+                className="flex items-center space-x-3 text-left hover:text-green-400 transition-colors"
+              >
                 <Mail className="h-5 w-5 text-lp-blue flex-shrink-0" />
                 <p className="text-gray-300 text-sm">lpcomercialconfec@gmail.com</p>
-              </div>
+              </button>
             </div>
           </div>
         </div>

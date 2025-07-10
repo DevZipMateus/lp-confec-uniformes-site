@@ -1,41 +1,14 @@
 
-import React, { useState } from 'react';
-import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
-import { toast } from 'sonner';
+import React from 'react';
+import { Phone, Mail, MapPin, Clock, MessageCircle } from 'lucide-react';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    company: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simular envio do formulário
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    toast.success('Mensagem enviada com sucesso! Entraremos em contato em breve.');
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      company: '',
-      message: ''
-    });
-    setIsSubmitting(false);
+  const phoneNumber = '5541995668454';
+  const message = 'Olá! Gostaria de solicitar um orçamento para uniformes corporativos da LP Confecções.';
+  
+  const handleWhatsAppClick = () => {
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
   };
 
   const contactInfo = [
@@ -43,19 +16,19 @@ const Contact = () => {
       icon: Phone,
       title: 'Telefones',
       details: ['(41) 99566-8454', '(41) 3585-2549'],
-      action: 'tel:+5541995668454'
+      action: handleWhatsAppClick
     },
     {
       icon: Mail,
       title: 'Email',
       details: ['lpcomercialconfec@gmail.com'],
-      action: 'mailto:lpcomercialconfec@gmail.com'
+      action: handleWhatsAppClick
     },
     {
       icon: MapPin,
       title: 'Endereço',
       details: ['Rua Jornalista Calil Simão, 291', 'Curitiba/PR - CEP: 81.935-304'],
-      action: 'https://maps.google.com/?q=Rua+Jornalista+Calil+Simão,+291,+Curitiba'
+      action: () => window.open('https://maps.google.com/?q=Rua+Jornalista+Calil+Simão,+291,+Curitiba', '_blank', 'noopener,noreferrer')
     },
     {
       icon: Clock,
@@ -74,8 +47,8 @@ const Contact = () => {
             Entre em Contato
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Estamos prontos para atender você. Entre em contato conosco e receba 
-            um orçamento personalizado para seus uniformes corporativos.
+            Estamos prontos para atender você. Entre em contato conosco pelo WhatsApp 
+            e receba um orçamento personalizado para seus uniformes corporativos.
           </p>
         </div>
 
@@ -87,11 +60,9 @@ const Contact = () => {
               {contactInfo.map((info, index) => (
                 <div key={index} className="group">
                   {info.action ? (
-                    <a
-                      href={info.action}
-                      target={info.action.startsWith('http') ? '_blank' : '_self'}
-                      rel={info.action.startsWith('http') ? 'noopener noreferrer' : undefined}
-                      className="bg-white rounded-lg p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-200 block"
+                    <button
+                      onClick={info.action}
+                      className="bg-white rounded-lg p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-200 block w-full text-left"
                     >
                       <div className="flex items-center space-x-3 mb-3">
                         <div className="bg-lp-royal/10 w-10 h-10 rounded-lg flex items-center justify-center">
@@ -104,7 +75,7 @@ const Contact = () => {
                           <p key={detailIndex}>{detail}</p>
                         ))}
                       </div>
-                    </a>
+                    </button>
                   ) : (
                     <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-100">
                       <div className="flex items-center space-x-3 mb-3">
@@ -152,117 +123,50 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Formulário de Contato */}
+          {/* Chamada para WhatsApp */}
           <div className="bg-white rounded-lg p-8 shadow-sm border border-gray-100">
-            <h3 className="font-playfair font-bold text-2xl text-gray-900 mb-2">
-              Solicite seu Orçamento
-            </h3>
-            <p className="text-gray-600 mb-8">
-              Preencha o formulário abaixo e entraremos em contato para apresentar 
-              a melhor proposta para seus uniformes.
-            </p>
-
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                    Nome completo *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-lp-royal focus:border-transparent transition-colors"
-                    placeholder="Seu nome"
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    Email *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-lp-royal focus:border-transparent transition-colors"
-                    placeholder="seu@email.com"
-                  />
-                </div>
+            <div className="text-center">
+              <div className="bg-green-500/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <MessageCircle className="h-10 w-10 text-green-600" />
               </div>
-
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                    Telefone
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-lp-royal focus:border-transparent transition-colors"
-                    placeholder="(41) 99999-9999"
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
-                    Empresa
-                  </label>
-                  <input
-                    type="text"
-                    id="company"
-                    name="company"
-                    value={formData.company}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-lp-royal focus:border-transparent transition-colors"
-                    placeholder="Nome da empresa"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                  Mensagem *
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={5}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-lp-royal focus:border-transparent transition-colors resize-none"
-                  placeholder="Conte-nos sobre suas necessidades de uniformes: quantidade, tamanhos, cores, prazos, etc."
-                />
-              </div>
+              
+              <h3 className="font-playfair font-bold text-2xl text-gray-900 mb-2">
+                Fale Conosco no WhatsApp
+              </h3>
+              <p className="text-gray-600 mb-8">
+                Converse diretamente conosco pelo WhatsApp e receba seu orçamento 
+                personalizado de forma rápida e prática.
+              </p>
 
               <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-lp-royal hover:bg-lp-dark text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                onClick={handleWhatsAppClick}
+                className="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-4 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center space-x-3 mb-6 text-lg"
               >
-                {isSubmitting ? (
-                  <>
-                    <div className="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full" />
-                    <span>Enviando...</span>
-                  </>
-                ) : (
-                  <>
-                    <Send className="h-5 w-5" />
-                    <span>Enviar Mensagem</span>
-                  </>
-                )}
+                <MessageCircle className="h-6 w-6" />
+                <span>Iniciar Conversa no WhatsApp</span>
               </button>
-            </form>
+
+              <div className="space-y-4 text-sm text-gray-600">
+                <div className="bg-gray-50 rounded-lg p-4">
+                  <h4 className="font-semibold text-gray-900 mb-2">📱 Nosso número:</h4>
+                  <p className="text-lg font-medium text-gray-900">(41) 99566-8454</p>
+                </div>
+                
+                <div className="bg-gray-50 rounded-lg p-4">
+                  <h4 className="font-semibold text-gray-900 mb-2">⏰ Atendimento:</h4>
+                  <p>Segunda à Sexta: 8h às 18h</p>
+                  <p>Sábado: 8h às 12h</p>
+                </div>
+
+                <div className="bg-lp-royal/5 rounded-lg p-4 border border-lp-royal/20">
+                  <h4 className="font-semibold text-lp-royal mb-2">💡 Dica:</h4>
+                  <p className="text-gray-700">
+                    Para um atendimento mais rápido, nos conte sobre suas necessidades: 
+                    quantidade de uniformes, tamanhos, cores e prazo desejado.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

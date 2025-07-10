@@ -15,6 +15,13 @@ const Hero = () => {
     }
   };
 
+  const handleWhatsAppClick = () => {
+    const phoneNumber = '5541995668454';
+    const message = 'Olá! Gostaria de solicitar um orçamento para uniformes corporativos da LP Confecções.';
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <section id="inicio" className="pt-20 lp-section bg-gradient-to-br from-gray-50 via-white to-blue-50">
       <div className="lp-container">
@@ -69,7 +76,7 @@ const Hero = () => {
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4">
               <button
-                onClick={() => scrollToSection('contato')}
+                onClick={handleWhatsAppClick}
                 className="lp-button-primary flex items-center justify-center space-x-2 group"
               >
                 <span>Solicitar Orçamento</span>
