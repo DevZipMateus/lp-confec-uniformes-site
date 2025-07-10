@@ -38,7 +38,7 @@
     --input: 220 13% 91%;
     --ring: 217 91% 32%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
     /* Variáveis customizadas para LP Confecções */
     --lp-royal-blue: 217 91% 32%;
@@ -95,9 +95,9 @@
 }
 
 @layer components {
-  /* Componentes customizados para LP Confecções */
+  /* Componentes customizados para LP Confecções - Estilo Minimalista */
   .lp-section {
-    @apply py-16 lg:py-24;
+    @apply py-16 lg:py-20;
   }
 
   .lp-container {
@@ -113,30 +113,30 @@
   }
 
   .lp-card {
-    @apply bg-white rounded-2xl shadow-lg border border-gray-100 p-8 transition-all duration-300 hover:shadow-xl hover:scale-105;
+    @apply bg-white rounded-lg shadow-sm border border-gray-100 p-6 transition-all duration-200 hover:shadow-md;
   }
 
   .lp-button-primary {
-    @apply bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105;
+    @apply bg-lp-royal hover:bg-lp-dark text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200;
   }
 
   .lp-button-secondary {
-    @apply bg-white text-blue-600 border-2 border-blue-600 hover:bg-blue-50 font-semibold py-4 px-8 rounded-xl transition-all duration-300;
+    @apply bg-white text-lp-royal border border-lp-royal hover:bg-gray-50 font-medium py-3 px-6 rounded-lg transition-colors duration-200;
   }
 
-  /* Animações suaves */
+  /* Animações suaves e minimalistas */
   .fade-in {
-    animation: fadeIn 0.6s ease-out;
+    animation: fadeIn 0.4s ease-out;
   }
 
   .slide-up {
-    animation: slideUp 0.8s ease-out;
+    animation: slideUp 0.6s ease-out;
   }
 
   @keyframes fadeIn {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(10px);
     }
     to {
       opacity: 1;
@@ -147,7 +147,7 @@
   @keyframes slideUp {
     from {
       opacity: 0;
-      transform: translateY(40px);
+      transform: translateY(20px);
     }
     to {
       opacity: 1;
@@ -155,7 +155,7 @@
     }
   }
 
-  /* WhatsApp Button */
+  /* WhatsApp Button - Minimalista */
   .whatsapp-float {
     position: fixed;
     bottom: 20px;
@@ -163,18 +163,18 @@
     z-index: 1000;
     background: #25d366;
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    width: 56px;
+    height: 56px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
-    transition: all 0.3s ease;
+    box-shadow: 0 2px 12px rgba(37, 211, 102, 0.2);
+    transition: all 0.2s ease;
   }
 
   .whatsapp-float:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+    transform: scale(1.05);
+    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
   }
 }
 
@@ -189,6 +189,6 @@
   }
   
   .lp-card {
-    @apply p-6;
+    @apply p-4;
   }
 }

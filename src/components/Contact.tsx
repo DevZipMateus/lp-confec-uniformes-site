@@ -66,37 +66,24 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contato" className="lp-section bg-white">
+    <section id="contato" className="lp-section bg-gray-50">
       <div className="lp-container">
         {/* Header da Seção */}
-        <div className="text-center mb-16">
-          <span className="inline-block bg-lp-royal/10 text-lp-royal font-semibold px-4 py-2 rounded-full text-sm mb-4">
+        <div className="text-center mb-12">
+          <h2 className="font-playfair font-bold text-3xl lg:text-4xl text-gray-900 mb-4">
             Entre em Contato
-          </span>
-          <h2 className="lp-heading max-w-3xl mx-auto">
-            Vamos criar os uniformes 
-            <span className="text-lp-royal"> perfeitos</span> para sua empresa
           </h2>
-          <p className="lp-subheading max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Estamos prontos para atender você. Entre em contato conosco e receba 
             um orçamento personalizado para seus uniformes corporativos.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid lg:grid-cols-2 gap-12">
           {/* Informações de Contato */}
           <div className="space-y-8">
-            <div>
-              <h3 className="font-playfair font-bold text-2xl text-gray-900 mb-6">
-                Informações de Contato
-              </h3>
-              <p className="text-gray-600 leading-relaxed mb-8">
-                Nossa equipe está pronta para atender você da melhor forma possível. 
-                Escolha a forma de contato que preferir e fale conosco agora mesmo.
-              </p>
-            </div>
-
-            <div className="grid sm:grid-cols-2 gap-6">
+            {/* Cards de Contato */}
+            <div className="grid sm:grid-cols-2 gap-4">
               {contactInfo.map((info, index) => (
                 <div key={index} className="group">
                   {info.action ? (
@@ -104,39 +91,31 @@ const Contact = () => {
                       href={info.action}
                       target={info.action.startsWith('http') ? '_blank' : '_self'}
                       rel={info.action.startsWith('http') ? 'noopener noreferrer' : undefined}
-                      className="lp-card block hover:bg-gradient-to-br hover:from-lp-royal/5 hover:to-lp-blue/5"
+                      className="bg-white rounded-lg p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-200 block"
                     >
-                      <div className="bg-lp-royal/10 w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:bg-lp-royal/20 transition-colors">
-                        <info.icon className="h-6 w-6 text-lp-royal" />
+                      <div className="flex items-center space-x-3 mb-3">
+                        <div className="bg-lp-royal/10 w-10 h-10 rounded-lg flex items-center justify-center">
+                          <info.icon className="h-5 w-5 text-lp-royal" />
+                        </div>
+                        <h4 className="font-semibold text-gray-900">{info.title}</h4>
                       </div>
-                      
-                      <h4 className="font-playfair font-bold text-lg text-gray-900 mb-2">
-                        {info.title}
-                      </h4>
-                      
-                      <div className="space-y-1">
+                      <div className="space-y-1 text-sm text-gray-600">
                         {info.details.map((detail, detailIndex) => (
-                          <p key={detailIndex} className="text-gray-600 text-sm">
-                            {detail}
-                          </p>
+                          <p key={detailIndex}>{detail}</p>
                         ))}
                       </div>
                     </a>
                   ) : (
-                    <div className="lp-card">
-                      <div className="bg-lp-royal/10 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
-                        <info.icon className="h-6 w-6 text-lp-royal" />
+                    <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-100">
+                      <div className="flex items-center space-x-3 mb-3">
+                        <div className="bg-lp-royal/10 w-10 h-10 rounded-lg flex items-center justify-center">
+                          <info.icon className="h-5 w-5 text-lp-royal" />
+                        </div>
+                        <h4 className="font-semibold text-gray-900">{info.title}</h4>
                       </div>
-                      
-                      <h4 className="font-playfair font-bold text-lg text-gray-900 mb-2">
-                        {info.title}
-                      </h4>
-                      
-                      <div className="space-y-1">
+                      <div className="space-y-1 text-sm text-gray-600">
                         {info.details.map((detail, detailIndex) => (
-                          <p key={detailIndex} className="text-gray-600 text-sm">
-                            {detail}
-                          </p>
+                          <p key={detailIndex}>{detail}</p>
                         ))}
                       </div>
                     </div>
@@ -145,31 +124,37 @@ const Contact = () => {
               ))}
             </div>
 
-            {/* Mapa Placeholder */}
-            <div className="bg-gradient-to-br from-lp-royal/10 to-lp-blue/10 rounded-2xl p-8 text-center">
-              <MapPin className="h-12 w-12 text-lp-royal mx-auto mb-4" />
-              <h4 className="font-playfair font-bold text-lg text-gray-900 mb-2">
-                Nossa Localização
-              </h4>
-              <p className="text-gray-600 mb-4">
-                Rua Jornalista Calil Simão, 291<br />
-                Curitiba/PR - CEP: 81.935-304
-              </p>
-              <a
-                href="https://maps.google.com/?q=Rua+Jornalista+Calil+Simão,+291,+Curitiba"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center text-lp-royal font-semibold hover:text-lp-dark transition-colors"
-              >
-                Ver no Google Maps
-                <MapPin className="h-4 w-4 ml-2" />
-              </a>
+            {/* Google Maps */}
+            <div className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden">
+              <div className="p-6 border-b border-gray-100">
+                <div className="flex items-center space-x-3">
+                  <div className="bg-lp-royal/10 w-10 h-10 rounded-lg flex items-center justify-center">
+                    <MapPin className="h-5 w-5 text-lp-royal" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900">Nossa Localização</h4>
+                    <p className="text-sm text-gray-600">Rua Jornalista Calil Simão, 291, Curitiba/PR</p>
+                  </div>
+                </div>
+              </div>
+              <div className="h-64">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3603.7234567890123!2d-49.26891852456789!3d-25.461234567890123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce4b8b8b8b8b8%3A0x1234567890abcdef!2sRua%20Jornalista%20Calil%20Sim%C3%A3o%2C%20291%20-%20Curitiba%2C%20PR!5e0!3m2!1spt-BR!2sbr!4v1234567890123!5m2!1spt-BR!2sbr"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Localização LP Confecções"
+                />
+              </div>
             </div>
           </div>
 
           {/* Formulário de Contato */}
-          <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 lg:p-10 shadow-lg border border-gray-100">
-            <h3 className="font-playfair font-bold text-2xl text-gray-900 mb-6">
+          <div className="bg-white rounded-lg p-8 shadow-sm border border-gray-100">
+            <h3 className="font-playfair font-bold text-2xl text-gray-900 mb-2">
               Solicite seu Orçamento
             </h3>
             <p className="text-gray-600 mb-8">
@@ -180,7 +165,7 @@ const Contact = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                     Nome completo *
                   </label>
                   <input
@@ -190,13 +175,13 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-lp-royal focus:border-transparent transition-colors"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-lp-royal focus:border-transparent transition-colors"
                     placeholder="Seu nome"
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                     Email *
                   </label>
                   <input
@@ -206,7 +191,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-lp-royal focus:border-transparent transition-colors"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-lp-royal focus:border-transparent transition-colors"
                     placeholder="seu@email.com"
                   />
                 </div>
@@ -214,7 +199,7 @@ const Contact = () => {
 
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
                     Telefone
                   </label>
                   <input
@@ -223,13 +208,13 @@ const Contact = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-lp-royal focus:border-transparent transition-colors"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-lp-royal focus:border-transparent transition-colors"
                     placeholder="(41) 99999-9999"
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="company" className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
                     Empresa
                   </label>
                   <input
@@ -238,14 +223,14 @@ const Contact = () => {
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-lp-royal focus:border-transparent transition-colors"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-lp-royal focus:border-transparent transition-colors"
                     placeholder="Nome da empresa"
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
                   Mensagem *
                 </label>
                 <textarea
@@ -255,7 +240,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-lp-royal focus:border-transparent transition-colors resize-none"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-lp-royal focus:border-transparent transition-colors resize-none"
                   placeholder="Conte-nos sobre suas necessidades de uniformes: quantidade, tamanhos, cores, prazos, etc."
                 />
               </div>
@@ -263,7 +248,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full lp-button-primary flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-lp-royal hover:bg-lp-dark text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
                   <>
