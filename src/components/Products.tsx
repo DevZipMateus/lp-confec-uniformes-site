@@ -15,62 +15,62 @@ const Products = () => {
   const products = [
     {
       id: 1,
-      name: 'Uniforme Executivo Masculino',
+      name: 'Blusas de moleton com capuz',
       image: '/lovable-uploads/0e0ae92fd979b3444734a78915c9253e.jpg',
     },
     {
       id: 2,
-      name: 'Uniforme Executivo Feminino',
+      name: 'Blusas de moleton sem capuz',
       image: '/lovable-uploads/23f64cc4dcf825d3313f48f5988ad76a.jpg',
     },
     {
       id: 3,
-      name: 'Camisa Social Personalizada',
+      name: 'Calças de moleton',
       image: '/lovable-uploads/3642a917d5de91def4d94c33481f6435.jpg',
     },
     {
       id: 4,
-      name: 'Conjunto Profissional',
+      name: 'Blusas de moleton sem capuz',
       image: '/lovable-uploads/39b9de3e4b6bfe97095658b8fed779ab.jpg',
     },
     {
       id: 5,
-      name: 'Uniforme Hospitalar',
+      name: 'Uniforme escolar',
       image: '/lovable-uploads/3ca07a4f3886ea792bd66ff7ec3aae7b.jpg',
     },
     {
       id: 6,
-      name: 'Avental Profissional',
+      name: 'Camisas polo',
       image: '/lovable-uploads/597ca98e9a2b11fe9831391c28a09acb.jpg',
     },
     {
       id: 7,
-      name: 'Uniforme Industrial',
+      name: 'Camisas polo',
       image: '/lovable-uploads/5d3505b49f7a8adac61508c45a81e5dc.jpg',
     },
     {
       id: 8,
-      name: 'Camisa Polo Corporativa',
+      name: 'Camisa lisa',
       image: '/lovable-uploads/710f236a0faf8ebcc88cac28223445e4.jpg',
     },
     {
       id: 9,
-      name: 'Uniforme Escolar',
+      name: 'Moletom sem capuz',
       image: '/lovable-uploads/72269d388c765c0a4673bf6985e2131a.jpg',
     },
     {
       id: 10,
-      name: 'Jalecos Médicos',
+      name: 'Calças moleton',
       image: '/lovable-uploads/7fb1c2bd2cd0dc16041fa687cf82ba62.jpg',
     },
     {
       id: 11,
-      name: 'Uniformes Esportivos',
+      name: 'Camisas lisas',
       image: '/lovable-uploads/84741a7171e73b93547d34143d09f1a7.jpg',
     },
     {
       id: 12,
-      name: 'Uniformes de Segurança',
+      name: 'Moletons com capuz',
       image: '/lovable-uploads/88bf48c8102520c89917a0b894070b43.jpg',
     }
   ];
