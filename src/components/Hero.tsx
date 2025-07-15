@@ -1,5 +1,7 @@
+
 import React from 'react';
 import { ArrowRight, Star, Shield, Clock } from 'lucide-react';
+
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -18,13 +20,16 @@ const Hero = () => {
       });
     }
   };
+
   const handleWhatsAppClick = () => {
     const phoneNumber = '5541995668454';
     const message = 'Olá! Gostaria de solicitar um orçamento para uniformes corporativos da LP Confecções.';
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
   };
-  return <section id="inicio" className="pt-20 sm:pt-24 md:pt-28 lp-section bg-gradient-to-br from-gray-50 via-white to-blue-50">
+
+  return (
+    <section id="inicio" className="pt-20 sm:pt-24 md:pt-28 lp-section bg-gradient-to-br from-gray-50 via-white to-blue-50">
       <div className="lp-container mx-[3px] my-[64px]">
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center">
           {/* Conteúdo Principal */}
@@ -110,13 +115,17 @@ const Hero = () => {
           </div>
 
           {/* Imagem/Visual */}
-          <div className="relative slide-up order-1 lg:order-2">
-            <div className="relative">
+          <div className="relative slide-up order-1 lg:order-2 max-w-full overflow-hidden">
+            <div className="relative max-w-full">
               {/* Container com logo da LP Confecções */}
-              <div className="bg-gradient-to-br from-lp-royal to-lp-blue rounded-xl sm:rounded-2xl md:rounded-3xl h-48 sm:h-64 md:h-80 lg:h-96 xl:h-[500px] flex items-center justify-center shadow-2xl">
-                <div className="text-center text-white p-3 sm:p-4 md:p-6 lg:p-8 w-full mx-px my-0 py-[21px]">
-                  <div className="bg-white/20 backdrop-blur-sm rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-6 lg:p-8 flex items-center justify-center">
-                    <img src="/lovable-uploads/a-modern-logo-design-for-lp-confeccoes-f_zy6A2gVGRNaFiaxE1M7I4w_zTHQy_m6TkuSqfI9SLuwAg.jpeg" alt="LP Confecções - Uniformes de qualidade" className="lp-image-hero max-w-[150px] sm:max-w-[200px] md:max-w-[250px] lg:max-w-[300px] xl:max-w-[350px]" />
+              <div className="bg-gradient-to-br from-lp-royal to-lp-blue rounded-xl sm:rounded-2xl md:rounded-3xl h-48 sm:h-64 md:h-80 lg:h-96 xl:h-[500px] flex items-center justify-center shadow-2xl max-w-full">
+                <div className="text-center text-white p-3 sm:p-4 md:p-6 lg:p-8 w-full mx-px my-0 py-[21px] max-w-full">
+                  <div className="bg-white/20 backdrop-blur-sm rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-6 lg:p-8 flex items-center justify-center max-w-full">
+                    <img 
+                      src="/lovable-uploads/a-modern-logo-design-for-lp-confeccoes-f_zy6A2gVGRNaFiaxE1M7I4w_zTHQy_m6TkuSqfI9SLuwAg.jpeg" 
+                      alt="LP Confecções - Uniformes de qualidade" 
+                      className="w-full h-auto object-contain max-w-[150px] sm:max-w-[200px] md:max-w-[250px] lg:max-w-[300px] xl:max-w-[350px]"
+                    />
                   </div>
                 </div>
               </div>
@@ -133,6 +142,8 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Hero;
