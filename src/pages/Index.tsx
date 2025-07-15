@@ -11,12 +11,12 @@ import WhatsAppButton from '../components/WhatsAppButton';
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden max-w-full">
       {/* Cabeçalho fixo */}
       <Header />
       
       {/* Seções principais */}
-      <main>
+      <main className="overflow-x-hidden max-w-full">
         <Hero />
         <About />
         <Services />
