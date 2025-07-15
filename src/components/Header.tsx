@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
@@ -17,7 +18,14 @@ const Header = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const headerHeight = 80;
+      // Dynamic header height calculation based on screen size
+      const getHeaderHeight = () => {
+        if (window.innerWidth < 640) return 56; // Mobile: 14 * 4 = 56px
+        if (window.innerWidth < 768) return 64; // SM: 16 * 4 = 64px
+        return 80; // MD and up: 20 * 4 = 80px
+      };
+      
+      const headerHeight = getHeaderHeight();
       const elementPosition = element.offsetTop - headerHeight;
       window.scrollTo({
         top: elementPosition,

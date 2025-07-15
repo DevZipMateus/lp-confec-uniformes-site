@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ArrowRight, Star, Shield, Clock } from 'lucide-react';
 
@@ -5,7 +6,14 @@ const Hero = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const headerHeight = 80;
+      // Dynamic header height calculation based on screen size
+      const getHeaderHeight = () => {
+        if (window.innerWidth < 640) return 56; // Mobile: 14 * 4 = 56px
+        if (window.innerWidth < 768) return 64; // SM: 16 * 4 = 64px
+        return 80; // MD and up: 20 * 4 = 80px
+      };
+      
+      const headerHeight = getHeaderHeight();
       const elementPosition = element.offsetTop - headerHeight;
       window.scrollTo({
         top: elementPosition,
@@ -22,7 +30,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="inicio" className="pt-14 sm:pt-16 md:pt-20 lp-section bg-gradient-to-br from-gray-50 via-white to-blue-50">
+    <section id="inicio" className="pt-20 sm:pt-24 md:pt-28 lp-section bg-gradient-to-br from-gray-50 via-white to-blue-50">
       <div className="lp-container">
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center">
           {/* Conteúdo Principal */}
