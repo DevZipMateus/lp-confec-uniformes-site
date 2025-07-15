@@ -111,17 +111,15 @@ const Hero = () => {
           {/* Imagem/Visual */}
           <div className="relative slide-up">
             <div className="relative">
-              {/* Placeholder para imagem de uniformes - usando gradiente elegante */}
+              {/* Container com logo da LP Confecções */}
               <div className="bg-gradient-to-br from-lp-royal to-lp-blue rounded-3xl h-96 lg:h-[500px] flex items-center justify-center shadow-2xl">
                 <div className="text-center text-white p-8">
-                  <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-8">
+                  <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-8 flex items-center justify-center">
                     <img 
-                      src="/lovable-uploads/e90ad97c-8d16-4408-af62-dc008654f6b3.png" 
+                      src="/lovable-uploads/a-modern-logo-design-for-lp-confeccoes-f_zy6A2gVGRNaFiaxE1M7I4w_zTHQy_m6TkuSqfI9SLuwAg.jpeg" 
                       alt="LP Confecções - Uniformes de qualidade" 
-                      className="h-32 w-auto mx-auto mb-4 filter brightness-0 invert"
+                      className="h-48 w-48 object-contain rounded-lg"
                     />
-                    <h3 className="font-playfair font-bold text-2xl mb-2">LP Confecções</h3>
-                    <p className="text-lg font-medium">Uniformes que refletem sua empresa</p>
                   </div>
                 </div>
               </div>
