@@ -78,7 +78,7 @@ const Products = () => {
   return (
     <section id="produtos" className="lp-section bg-gray-50">
       <div className="lp-container">
-        <div className="text-center mb-12">
+        <div className="text-center mb-8 sm:mb-12">
           <h2 className="lp-heading">Nossos Produtos</h2>
           <p className="lp-subheading max-w-3xl mx-auto">
             Confira nossa linha completa de uniformes e produtos personalizados, 
@@ -87,28 +87,28 @@ const Products = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="responsive-grid-4">
           {products.map((product) => (
             <Card key={product.id} className="group hover:shadow-lg transition-all duration-300 overflow-hidden">
               <div className="aspect-square overflow-hidden">
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="lp-image-responsive group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />
               </div>
-              <CardContent className="p-4">
-                <h3 className="font-inter font-semibold text-gray-900 text-center text-sm lg:text-base">
+              <CardContent className="p-3 sm:p-4">
+                <h3 className="font-inter font-semibold text-gray-900 text-center text-sm sm:text-base leading-tight">
                   {product.name}
                 </h3>
               </CardContent>
-              <CardFooter className="p-4 pt-0">
+              <CardFooter className="p-3 sm:p-4 pt-0">
                 <Button
                   onClick={() => handleWhatsAppClick(product.name)}
-                  className="w-full lp-button-primary flex items-center justify-center gap-2 text-sm"
+                  className="w-full lp-button-primary flex items-center justify-center gap-2 text-xs sm:text-sm"
                 >
-                  <Eye size={16} />
+                  <Eye size={14} className="sm:w-4 sm:h-4" />
                   Ver Preço
                 </Button>
               </CardFooter>
@@ -116,8 +116,8 @@ const Products = () => {
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <p className="text-gray-600 mb-6">
+        <div className="text-center mt-8 sm:mt-12">
+          <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">
             Não encontrou o que procura? Entre em contato conosco para produtos personalizados!
           </p>
           <Button
