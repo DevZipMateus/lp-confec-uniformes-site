@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardFooter } from './ui/card';
 import { Button } from './ui/button';
@@ -78,16 +77,16 @@ const Products = () => {
   return (
     <section id="produtos" className="lp-section bg-gray-50">
       <div className="lp-container">
-        <div className="text-center mb-8 sm:mb-12">
+        <div className="text-center mb-6 sm:mb-8 md:mb-12">
           <h2 className="lp-heading">Nossos Produtos</h2>
-          <p className="lp-subheading max-w-3xl mx-auto">
+          <p className="lp-subheading max-w-3xl mx-auto mobile-contrast">
             Confira nossa linha completa de uniformes e produtos personalizados, 
             desenvolvidos com qualidade superior e design moderno para atender 
             todas as necessidades da sua empresa.
           </p>
         </div>
 
-        <div className="responsive-grid-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4 lg:gap-6">
           {products.map((product) => (
             <Card key={product.id} className="group hover:shadow-lg transition-all duration-300 overflow-hidden">
               <div className="aspect-square overflow-hidden">
@@ -98,34 +97,36 @@ const Products = () => {
                   loading="lazy"
                 />
               </div>
-              <CardContent className="p-3 sm:p-4">
-                <h3 className="font-inter font-semibold text-gray-900 text-center text-sm sm:text-base leading-tight">
+              <CardContent className="p-2 sm:p-3 md:p-4">
+                <h3 className="font-inter font-semibold text-gray-900 text-center text-xs sm:text-sm md:text-base leading-tight mobile-contrast">
                   {product.name}
                 </h3>
               </CardContent>
-              <CardFooter className="p-3 sm:p-4 pt-0">
+              <CardFooter className="p-2 sm:p-3 md:p-4 pt-0">
                 <Button
                   onClick={() => handleWhatsAppClick(product.name)}
-                  className="w-full lp-button-primary flex items-center justify-center gap-2 text-xs sm:text-sm"
+                  className="w-full lp-button-primary flex items-center justify-center gap-1 sm:gap-2 text-xs mobile-button"
                 >
-                  <Eye size={14} className="sm:w-4 sm:h-4" />
-                  Ver Preço
+                  <Eye size={12} className="sm:w-3 sm:h-3 md:w-4 md:h-4" />
+                  <span className="hidden sm:inline">Ver Preço</span>
+                  <span className="sm:hidden">Preço</span>
                 </Button>
               </CardFooter>
             </Card>
           ))}
         </div>
 
-        <div className="text-center mt-8 sm:mt-12">
-          <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">
+        <div className="text-center mt-6 sm:mt-8 md:mt-12">
+          <p className="text-gray-600 mb-3 sm:mb-4 md:mb-6 text-xs sm:text-sm md:text-base mobile-contrast">
             Não encontrou o que procura? Entre em contato conosco para produtos personalizados!
           </p>
           <Button
             onClick={() => handleWhatsAppClick('Produto Personalizado')}
             variant="outline"
-            className="lp-button-secondary"
+            className="lp-button-secondary mobile-button"
           >
-            Solicitar Produto Personalizado
+            <span className="hidden sm:inline">Solicitar Produto Personalizado</span>
+            <span className="sm:hidden">Produto Personalizado</span>
           </Button>
         </div>
       </div>

@@ -97,31 +97,31 @@
 @layer components {
   /* Componentes customizados para LP Confecções - Estilo Minimalista */
   .lp-section {
-    @apply py-12 md:py-16 lg:py-20;
+    @apply py-8 sm:py-12 md:py-16 lg:py-20;
   }
 
   .lp-container {
-    @apply container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+    @apply container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 max-w-7xl;
   }
 
   .lp-heading {
-    @apply font-playfair font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-900 mb-4 md:mb-6 leading-tight;
+    @apply font-playfair font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-gray-900 mb-3 sm:mb-4 md:mb-6 leading-tight;
   }
 
   .lp-subheading {
-    @apply font-inter text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed;
+    @apply font-inter text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed;
   }
 
   .lp-card {
-    @apply bg-white rounded-lg shadow-sm border border-gray-100 p-4 sm:p-6 transition-all duration-200 hover:shadow-md;
+    @apply bg-white rounded-lg shadow-sm border border-gray-100 p-3 sm:p-4 md:p-6 transition-all duration-200 hover:shadow-md;
   }
 
   .lp-button-primary {
-    @apply bg-lp-royal hover:bg-lp-dark text-white font-medium py-2 px-4 sm:py-3 sm:px-6 rounded-lg transition-colors duration-200 text-sm sm:text-base;
+    @apply bg-lp-royal hover:bg-lp-dark text-white font-medium py-2 px-3 sm:py-2.5 sm:px-4 md:py-3 md:px-6 rounded-lg transition-colors duration-200 text-xs sm:text-sm md:text-base;
   }
 
   .lp-button-secondary {
-    @apply bg-white text-lp-royal border border-lp-royal hover:bg-gray-50 font-medium py-2 px-4 sm:py-3 sm:px-6 rounded-lg transition-colors duration-200 text-sm sm:text-base;
+    @apply bg-white text-lp-royal border border-lp-royal hover:bg-gray-50 font-medium py-2 px-3 sm:py-2.5 sm:px-4 md:py-3 md:px-6 rounded-lg transition-colors duration-200 text-xs sm:text-sm md:text-base;
   }
 
   /* Imagens responsivas */
@@ -134,7 +134,7 @@
   }
 
   .lp-image-hero {
-    @apply w-full h-48 sm:h-64 md:h-80 lg:h-96 object-contain rounded-lg;
+    @apply w-full h-40 sm:h-48 md:h-64 lg:h-80 xl:h-96 object-contain rounded-lg;
   }
 
   /* Animações suaves e minimalistas */
@@ -171,13 +171,13 @@
   /* WhatsApp Button - Minimalista e Responsivo */
   .whatsapp-float {
     position: fixed;
-    bottom: 16px;
-    right: 16px;
+    bottom: 12px;
+    right: 12px;
     z-index: 1000;
     background: #25d366;
     border-radius: 50%;
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -190,6 +190,15 @@
     box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
   }
 
+  @media (min-width: 640px) {
+    .whatsapp-float {
+      bottom: 16px;
+      right: 16px;
+      width: 48px;
+      height: 48px;
+    }
+  }
+
   @media (min-width: 768px) {
     .whatsapp-float {
       bottom: 20px;
@@ -200,10 +209,37 @@
   }
 }
 
-/* Responsividade melhorada */
-@media (max-width: 640px) {
+/* Responsividade melhorada com mais breakpoints */
+@media (max-width: 480px) {
   .lp-section {
-    @apply py-8;
+    @apply py-6;
+  }
+  
+  .lp-heading {
+    @apply text-lg leading-tight;
+  }
+  
+  .lp-subheading {
+    @apply text-xs leading-relaxed;
+  }
+  
+  .lp-card {
+    @apply p-2.5 rounded-md;
+  }
+
+  .lp-container {
+    @apply px-2.5;
+  }
+
+  .lp-button-primary,
+  .lp-button-secondary {
+    @apply py-2 px-3 text-xs rounded-md;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 640px) {
+  .lp-section {
+    @apply py-7;
   }
   
   .lp-heading {
@@ -212,14 +248,6 @@
   
   .lp-subheading {
     @apply text-sm leading-relaxed;
-  }
-  
-  .lp-card {
-    @apply p-3;
-  }
-
-  .lp-container {
-    @apply px-3;
   }
 }
 
@@ -245,23 +273,70 @@
 
 /* Melhorias específicas para grid responsivo */
 .responsive-grid-2 {
-  @apply grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6;
+  @apply grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6;
 }
 
 .responsive-grid-3 {
-  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6;
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6;
 }
 
 .responsive-grid-4 {
-  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6;
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 md:gap-6;
 }
 
 /* Espaçamentos responsivos */
 .responsive-spacing {
-  @apply space-y-4 sm:space-y-6 md:space-y-8;
+  @apply space-y-3 sm:space-y-4 md:space-y-6 lg:space-y-8;
 }
 
 /* Flex responsivo */
 .responsive-flex {
-  @apply flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6;
+  @apply flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4 lg:gap-6;
+}
+
+/* Melhorias para mobile específicas */
+@media (max-width: 640px) {
+  /* Ajustes específicos para touch targets */
+  .mobile-touch-target {
+    @apply min-h-[44px] min-w-[44px];
+  }
+
+  /* Ajustes para texto em mobile */
+  .mobile-text-adjust {
+    @apply leading-relaxed;
+  }
+
+  /* Padding específico para mobile */
+  .mobile-padding {
+    @apply px-3 py-2;
+  }
+
+  /* Margens reduzidas para mobile */
+  .mobile-spacing {
+    @apply space-y-2;
+  }
+}
+
+/* Ajustes para orientação landscape em mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .lp-section {
+    @apply py-4;
+  }
+  
+  .lp-heading {
+    @apply text-lg sm:text-xl;
+  }
+}
+
+/* Melhorias para acessibilidade em mobile */
+@media (max-width: 640px) {
+  /* Contraste melhorado em mobile */
+  .mobile-contrast {
+    @apply text-gray-800;
+  }
+
+  /* Botões maiores para touch */
+  .mobile-button {
+    @apply min-h-[48px] px-4 py-3;
+  }
 }

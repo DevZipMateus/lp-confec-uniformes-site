@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
@@ -49,27 +48,27 @@ const Header = () => {
       isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-white/90 backdrop-blur-sm'
     }`}>
       <nav className="lp-container">
-        <div className="flex items-center justify-between h-16 sm:h-20">
+        <div className="flex items-center justify-between h-14 sm:h-16 md:h-20">
           {/* Logo */}
-          <div className="flex items-center space-x-2 sm:space-x-3">
+          <div className="flex items-center space-x-1.5 sm:space-x-2 md:space-x-3">
             <img 
               src="/lovable-uploads/e90ad97c-8d16-4408-af62-dc008654f6b3.png" 
               alt="LP Confecções - Logo" 
-              className="h-8 sm:h-10 md:h-12 w-auto"
+              className="h-6 sm:h-8 md:h-10 lg:h-12 w-auto"
             />
-            <div className="hidden sm:block">
-              <h1 className="font-playfair font-bold text-lg sm:text-xl text-gray-900">LP Confecções</h1>
-              <p className="text-xs sm:text-sm text-lp-gray font-medium">Uniformes que refletem sua empresa</p>
+            <div className="hidden xs:block">
+              <h1 className="font-playfair font-bold text-sm sm:text-lg md:text-xl text-gray-900">LP Confecções</h1>
+              <p className="text-xs sm:text-sm text-lp-gray font-medium hidden sm:block">Uniformes que refletem sua empresa</p>
             </div>
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
+          <div className="hidden lg:flex items-center space-x-4 xl:space-x-6">
             {menuItems.map((item) => (
               <button
                 key={item.href}
                 onClick={() => scrollToSection(item.href)}
-                className="font-inter font-medium text-gray-700 hover:text-lp-royal transition-colors duration-200 relative group text-sm xl:text-base"
+                className="font-inter font-medium text-gray-700 hover:text-lp-royal transition-colors duration-200 relative group text-sm xl:text-base mobile-touch-target"
               >
                 {item.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-lp-royal transition-all duration-300 group-hover:w-full"></span>
@@ -77,39 +76,40 @@ const Header = () => {
             ))}
             <button
               onClick={handleWhatsAppClick}
-              className="lp-button-primary"
+              className="lp-button-primary mobile-button"
             >
-              Solicitar Orçamento
+              <span className="hidden xl:inline">Solicitar Orçamento</span>
+              <span className="xl:hidden">Orçamento</span>
             </button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors mobile-touch-target"
             aria-label="Menu mobile"
           >
-            {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            {isMobileMenuOpen ? <X size={18} className="sm:w-5 sm:h-5" /> : <Menu size={18} className="sm:w-5 sm:h-5" />}
           </button>
         </div>
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-t border-gray-200 shadow-lg">
-            <div className="py-3 sm:py-4 space-y-1 sm:space-y-2">
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-t border-gray-200 shadow-lg max-h-[calc(100vh-4rem)] overflow-y-auto">
+            <div className="py-2 sm:py-3 mobile-spacing">
               {menuItems.map((item) => (
                 <button
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left px-4 py-2 sm:py-3 font-inter font-medium text-gray-700 hover:text-lp-royal hover:bg-gray-50 transition-colors text-sm sm:text-base"
+                  className="block w-full text-left mobile-padding mobile-touch-target font-inter font-medium text-gray-700 hover:text-lp-royal hover:bg-gray-50 transition-colors text-sm mobile-contrast"
                 >
                   {item.label}
                 </button>
               ))}
-              <div className="px-4 pt-2">
+              <div className="px-3 pt-2">
                 <button
                   onClick={handleWhatsAppClick}
-                  className="lp-button-primary w-full text-center"
+                  className="lp-button-primary w-full text-center mobile-button"
                 >
                   Solicitar Orçamento
                 </button>
